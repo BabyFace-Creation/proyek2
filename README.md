@@ -1,0 +1,2 @@
+## Laravel Inventory
+# proyek2
