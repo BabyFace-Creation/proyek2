@@ -39,15 +39,15 @@
                                         </td>
                                         <td>
                                             @if (round($client->balance) > 0)
-                                                <span class="text-success">{{ format_money($client->balance) }}</span>
+                                                <span class="text-success">{{ $client->balance }}</span>
                                             @elseif (round($client->balance) < 0.00)
-                                                <span class="text-danger">{{ format_money($client->balance) }}</span>
+                                                <span class="text-danger">{{ $client->balance }}</span>
                                             @else
-                                                {{ format_money($client->balance) }}
+                                                {{ $client->balance }}
                                             @endif
                                         </td>
                                         <td>{{ $client->sales->count() }}</td>
-                                        <td>{{ format_money($client->transactions->sum('amount')) }}</td>
+                                        <td>{{ $client->transactions->sum('amount') }}</td>
                                         <td>{{ ($client->sales->sortByDesc('created_at')->first()) ? date('d-m-y', strtotime($client->sales->sortByDesc('created_at')->first()->created_at)) : 'N/A' }}</td>
                                         <td class="td-actions text-right">
                                             <a href="{{ route('clients.show', $client) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="More Details">
